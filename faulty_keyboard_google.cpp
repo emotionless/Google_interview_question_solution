@@ -90,12 +90,34 @@ int main() {
         cout << answer[i] << endl;
     }
 
-
-
     return 0;
 }
 
 /*
-
+Output:
+I lik   to   xplor   univ rs
+I lik   to   xplor   univ rse
+I lik   to   xplor   universe
+I lik   to  explore  univ rs
+I lik   to  explore  univ rse
+I lik   to  explore  universe
+I lik   toe  xplor   univ rs
+I lik   toe  xplor   univ rse
+I lik   toe  xplor   universe
+I lik   toe explore  univ rs
+I lik   toe explore  univ rse
+I lik   toe explore  universe
+I like  to   xplor   univ rs
+I like  to   xplor   univ rse
+I like  to   xplor   universe
+I like  to  explore  univ rs
+I like  to  explore  univ rse
+I like  to  explore  universe
+I like  toe  xplor   univ rs
+I like  toe  xplor   univ rse
+I like  toe  xplor   universe
+I like  toe explore  univ rs
+I like  toe explore  univ rse
+I like  toe explore  universe
 
 */
