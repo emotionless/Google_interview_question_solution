@@ -96,7 +96,7 @@ int main()
 /*
 
 Time complexity:
-O(r*c*friends)
+O(r*c*friends*max(r, c))
 Space complexity:
 O(r*c*friends)
 
