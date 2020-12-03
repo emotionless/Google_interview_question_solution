@@ -1,24 +1,6 @@
 class Solution {
 public:
 
-    int stringToInt(string str) {
-
-        stringstream ss;
-        ss << str;
-        int ret = 0;
-        ss >> ret;
-        return ret;
-    }
-
-    string intToString(int num) {
-
-        stringstream ss;
-        ss << num;
-        string ret;
-        ss >> ret;
-        return ret;
-    }
-
     int calculate(string s) {
 
         string str;
@@ -64,17 +46,17 @@ public:
                         // cout << top << endl;
                         container.pop();
                         if (top == "+") {
-                            ans += stringToInt(pre);
+                            ans += stoi(pre);
                             pre = "";
                         } else if(top == "-") {
-                            ans -= stringToInt(pre);
+                            ans -= stoi(pre);
                             pre = "";
                         } else {
                             pre = top;
                         }
                     }
                     if (pre.length() > 0) {
-                        ans += stringToInt(pre);
+                        ans += stoi(pre);
                         pre = "";
                     }
                     container.pop();
@@ -90,13 +72,13 @@ public:
                         }
                     }
 
-                    container.push(intToString(abs(ans)));
+                    container.push(to_string(abs(ans)));
                 }
             } else {
                 container.push(tmp);
             }
         }
-        int ans = stringToInt(container.top());
+        int ans = stoi(container.top());
         if (container.size() > 1) {
             return -ans;
         }
