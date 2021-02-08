@@ -29,23 +29,22 @@ are considered different island shapes, because we do not consider reflection / 
 Note: The length of each dimension in the given grid does not exceed 50.
 */
 
-class Solution
-{
+class Solution {
 public:
 
     int dr[4] = {-1, 0, 1, 0};
     int dc[4] = {0, 1, 0, -1};
     char ch[4] = {'U', 'R', 'D', 'L'};
 
-    string getSequence(int x, int y, vector<vector<int>> &grid)
-    {
+    string getSequence(int x, int y, vector<vector<int>> &grid) {
         string ret = "";
         grid[x][y] = 0;
-        for(int i = 0; i < 4; i++)
-        {
+        for(int i = 0; i < 4; i++) {
             int ax = x + dr[i];
             int ay = y + dc[i];
-            if (ax < 0 || ax >= n || ay < 0 || ay >= m || grid[ax][ay] == 0) continue;
+            if (ax < 0 || ax >= n || ay < 0 || ay >= m || grid[ax][ay] == 0) {
+                continue;
+            }
             string cur = getSequence(ax, ay, grid);
             ret = ret + ch[i] + cur;
         }
@@ -53,21 +52,16 @@ public:
         return ret;
     }
 
-    int numDistinctIslands(vector<vector<int>>& grid)
-    {
+    int numDistinctIslands(vector<vector<int>>& grid) {
         n = grid.size();
         m = grid[0].size();
         int ans = 0;
         unordered_map<string, bool> vis;
-        for(int i = 0; i < n; i++)
-        {
-            for(int j = 0; j < m; j++)
-            {
-                if (grid[i][j] == 1)
-                {
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < m; j++) {
+                if (grid[i][j] == 1) {
                     string seq = getSequence(i, j, grid);
-                    if (vis.find(seq) == vis.end())
-                    {
+                    if (vis.find(seq) == vis.end()) {
                         vis[seq] = true;
                         ans++;
                     }
