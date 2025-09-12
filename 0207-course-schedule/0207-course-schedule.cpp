@@ -13,9 +13,11 @@ public:
                 candidates.push(i);
             }
         }
+        int tot = 0;
         while (!candidates.empty()) {
             int cur = candidates.front();
             candidates.pop();
+            tot++;
             for (int &v : to[cur]) {
                 counter[v]--;
                 if (counter[v] == 0) {
@@ -23,9 +25,6 @@ public:
                 }
             }
         }
-        for (int i = 0; i < numCourses; i++) {
-            if (counter[i] > 0) return false;
-        }
-        return true;
+        return tot == numCourses;
     }
 };
